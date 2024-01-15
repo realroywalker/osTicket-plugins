@@ -1,7 +1,7 @@
 <?php
 return array(
     'id' =>             'auth:oath2', # notrans
-    'version' =>        '0.6',
+    'version' =>        '0.61',
     'ost_version' =>    '1.17', # Require osTicket v1.17+
     'name' =>           /* trans */ 'Oauth2 Client',
     'author' =>         'Peter Rotich <peter@osticket.com>',
@@ -13,6 +13,7 @@ return array(
             "version" => "*",
             "map" => array(
                 "league/oauth2-client/src" => 'lib/League/OAuth2/Client',
+                'b3-it/oauth2-adfs/src' => 'lib/B3-IT/OAuth2ADFS',
                 'guzzlehttp/guzzle/src' => 'lib/GuzzleHttp',
                 'guzzlehttp/psr7/src'   => 'lib/GuzzleHttp/Psr7',
                 'guzzlehttp/promises/src' => 'lib/GuzzleHttp/Promise',

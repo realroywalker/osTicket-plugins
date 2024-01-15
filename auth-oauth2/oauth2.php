@@ -19,7 +19,8 @@
 **********************************************************************/
 include_once 'auth.php';
 
-use League\OAuth2\Client\Provider\GenericProvider;
+//use League\OAuth2\Client\Provider\GenericProvider;
+use B3-It/Oauth2ADFS/Provider/Adfs;
 
 /**
  * OAuth2AuthBackend
@@ -102,6 +103,7 @@ trait OAuth2AuthenticationTrait {
                 }
             }
         } catch (Exception $ex) {
+            error_log($ex,0);
             return false;
         }
     }
@@ -518,6 +520,8 @@ abstract class OAuth2ProviderBackend extends OAuth2AuthorizationBackend {
                 OktaOAuth2Provider($options));
         OAuth2AuthenticationBackend::register(new
                 OtherOAuth2Provider($options));
+        OAuth2AuthenticationBackend::register(new
+                AdfsOAuth2Provider($options));                
     }
 
     //  Register Authorization Providers
@@ -630,6 +634,25 @@ class OktaOauth2Provider extends GenericOauth2Provider {
         'attr_givenname' => 'given_name',
         'attr_surname' => 'family_name',
         ];
+}
+
+class AdfsOauth2Provider extends GenericOauth2Provider {
+    static $id = 'oauth2:adfs';
+    static $name = 'ADFS OAuth2';
+    static $icon = 'icon-windows';    
+    static $defaults = [
+        // Set the specific configuration options for oauth2-adfs
+        'urlAuthorize'   => 'https://adfs.contoso.com/adfs/oauth2/authorize',
+        'urlAccessToken' => 'https://adfs.contoso.com/adfs/oauth2/token',
+        'urlResourceOwnerDetails' => 'https://adfs.contoso.com/adfs/userinfo',
+        'scopes' => 'openid email profile',
+        'auth_name' => 'ADFS',
+        'auth_service' => 'ADFS',
+        'attr_username' => 'email',
+        'attr_email' => 'email',
+        'attr_givenname' => 'given_name',
+        'attr_surname' => 'family_name',
+    ];
 }
 
 // Authorization Email OAuth Providers
