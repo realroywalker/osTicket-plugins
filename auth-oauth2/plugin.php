@@ -13,14 +13,18 @@ return array(
             "version" => "*",
             "map" => array(
                 "league/oauth2-client/src" => 'lib/League/OAuth2/Client',
-                'b3-it/oauth2-adfs/src' => 'lib/B3-IT/OAuth2ADFS',
                 'guzzlehttp/guzzle/src' => 'lib/GuzzleHttp',
                 'guzzlehttp/psr7/src'   => 'lib/GuzzleHttp/Psr7',
                 'guzzlehttp/promises/src' => 'lib/GuzzleHttp/Promise',
                 'psr/http-client/src' => 'lib/Psr/Http/Client',
                 'psr/http-factory/src' => 'lib/Psr/Http/Factory',
                 'psr/http-message/src' => 'lib/Psr/Http/Message',
-
+            )
+        ),
+        "b3-it/oauth2-adfs" => array(
+            "version" => "*",
+            "map" => array(
+                'b3-it/oauth2-adfs/src' => 'lib/B3-IT/OAuth2ADFS',
             )
         ),
     ),
