@@ -20,7 +20,7 @@
 include_once 'auth.php';
 
 //use League\OAuth2\Client\Provider\GenericProvider;
-use B3-It/Oauth2ADFS/Provider/Adfs;
+use B3It\OAuth2ADFS\Provider\Adfs;
 
 /**
  * OAuth2AuthBackend

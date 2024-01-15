@@ -24,7 +24,7 @@ return array(
         "b3-it/oauth2-adfs" => array(
             "version" => "*",
             "map" => array(
-                'b3-it/oauth2-adfs/src' => 'lib/B3-IT/OAuth2ADFS',
+                'b3-it/oauth2-adfs/src' => 'lib/B3It/OAuth2ADFS',
             )
         ),
     ),
